@@ -6,13 +6,13 @@ command_exists() {
 }
 
 # Check if LaTeX is installed
-if command_exists pdflatex; then
-    echo "LaTeX is already installed."
+if command_exists pdflatex && command_exists bibtex && command_exists latexmk; then
+    echo "LaTeX, BibTeX, and latexmk are already installed."
 else
-    echo "LaTeX is not installed. Installing..."
+    echo "One or more of LaTeX, BibTeX, or latexmk are not installed. Installing..."
     sudo apt update
     sudo apt install texlive-full
-    echo "LaTeX has been installed successfully."
+    echo "LaTeX, BibTeX, and latexmk have been installed successfully."
 fi
 
 # Check if Git is installed
@@ -34,5 +34,3 @@ else
     sudo apt install hub
     echo "Hub has been installed successfully."
 fi
-
-
