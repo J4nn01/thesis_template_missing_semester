@@ -5,8 +5,8 @@ compile:
 		-aux-directory=build -output-directory=build main.tex
 	mv build/main.pdf .
 upload:
-    git add .
-    git status
-    @read -p "Enter commit message: " message; \
-    git commit -m "$$message"
-    git push
+	git add .
+	git status
+	@read -p "Enter commit message: " message; \
+	git commit -m "$$message"
+	git push
