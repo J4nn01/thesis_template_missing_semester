@@ -1,0 +1,96 @@
+% !TeX root = ../main.tex
+% ------------------- definitions -------------------
+\newcommand{\autor}{Vorname Nachname}
+\newcommand{\titel}{Bachelorthesistitel}
+\title{\titel}
+\author{\autor}
+\date{\datum}
+
+% ------------------- layout- / style packages -------------------
+\usepackage[T1]{fontenc}  % Font encoding
+\usepackage[utf8]{inputenc}  % Input encoding
+\usepackage{lmodern}  % Latin Modern font family
+
+\usepackage[ngerman]{babel}  % German language support
+
+\usepackage[autostyle,german=quotes]{csquotes}  % Context-sensitive quotation facilities
+
+\usepackage[labelsep=colon, format=hang, textfont=singlespacing]{caption}  % Customization of captions
+
+\usepackage{subcaption}  % Sub-captions
+
+\usepackage{chngcntr}  % Control of counters
+    \counterwithout{equation}{chapter}
+    \counterwithout{figure}{chapter}
+    \counterwithout{table}{chapter}
+    \captionsetup[table]{singlelinecheck=true}
+
+\usepackage{setspace}  % Set spacing
+
+\usepackage{parskip}  % Paragraph skip
+
+% Adding the feature  to count to the max pages number in the footsize
+\usepackage{fancyhdr}
+\cfoot{\thepage\ von \pageref{Schluss}}
+\setlength{\headheight}{15pt}
+\pagestyle{fancyplain}
+
+
+\setlength{\parindent}{0em}
+
+
+% ------------------- functional packages -------------------
+% (You can add functional packages here)
+
+% ------------------- colors -------------------
+\usepackage{xcolor}  % Color package
+\definecolor{LinkColor}{rgb}{0,0,0.2}  % Custom color definition
+
+% ------------------- math -------------------
+\usepackage{mathtools}  % Mathematical tools
+\usepackage{amssymb}  % AMS symbols
+\usepackage{amsthm}  % AMS theorem environment
+\usepackage{bm}  % Bold math symbols
+
+% ------------------- graphics -------------------
+\usepackage{graphicx}  % Enhanced support for graphics
+    %Imagepath
+    \graphicspath{{Content/image/}}  % Define path for images
+\usepackage{adjustbox}  % Adjusting the size of box
+\usepackage{tikz}  % TikZ package for drawings
+
+\usepackage{float}  % Improved interface for floating objects
+
+% ------------------- links -------------------
+% PDF Einstellungen
+\usepackage[%
+	pdftitle={\titel},
+	pdfauthor={\autor},
+	pdfcreator={pdflatex},
+    baseurl = {http://www.example.com},
+	pdfpagemode=UseOutlines, % Beim Oeffnen Inhaltsverzeichnis anzeigen
+	pdfdisplaydoctitle=true, % Dokumenttitel statt Dateiname anzeigen.
+	pdflang=de % Sprache des Dokuments.
+]{hyperref}
+
+\hypersetup{%
+	colorlinks=true, % Aktivieren von farbigen Links im Dokument
+	linkcolor=LinkColor, % Farbe festlegen
+	citecolor=LinkColor,
+	filecolor=LinkColor,
+	menucolor=LinkColor,
+	urlcolor=LinkColor,
+	bookmarksnumbered=true % Überschriftsnummerierung im PDF Inhalt anzeigen.
+}
+
+% ------------------- code -------------------
+\usepackage{algorithm, algpseudocode}  % Algorithms and pseudocode
+\usepackage{listingsutf8}  % Source code listing
+
+% [backend=biber, style=ieee, dashed=false]
+% ------------------- references -------------------
+\usepackage{biblatex}  % Bibliography and citation support
+\addbibresource{bib/references.bib}  % Add bibliography resource
+
+% ------------------- layout -------------------
+\usepackage{comment}  % Comment package

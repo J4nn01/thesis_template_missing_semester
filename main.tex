@@ -1,0 +1,36 @@
+% !TeX root = main.tex
+\documentclass[11pt, a4paper, ngerman, oneside, openany]{report}
+
+% include all packages and define commands in setup.tex
+\input{style/header}
+
+\begin{document}
+	\pagestyle{empty} % no header and no page number
+	% disable hyper links to remove warning "destination with same identifier"
+	% this means within this section nothing can be referenced with a hyperlink
+	% \hypersetup{pageanchor=false}
+
+	\input{tex/title}
+
+	\pagestyle{plain}
+      
+    \input{tex/erklaerung}
+
+	\pagenumbering{arabic}
+    \setcounter{page}{1}
+
+    \input{tex/declaration}
+    \input{tex/abstract}
+
+    \tableofcontents
+	\listoffigures
+	\listoftables
+	\listofalgorithms
+
+	\input{tex/introduction}
+	\input{tex/mainpart}
+	\input{tex/conclusion}
+
+    \printbibliography
+
+\end{document}

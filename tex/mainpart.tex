@@ -1,0 +1,188 @@
+% !TeX root = ../main.tex
+\chapter{Hauptteil}\label{chapter:hauptteil}
+Hier wird die eigentliche Arbeit dann sein. \\
+Ich werde hier ein paar Pakete, welche ich in die Header Datei geschrieben habe anhand von Beispielen kurz vorstellen.\\
+
+\section{Mathe}
+\subsection{mathtools Beispiele}
+
+Ein praktisches Feature ist die \texttt{aligned}-Umgebung, die beim Ausrichten mehrerer Gleichungen hilft:
+
+ \begin{equation}
+ \begin{aligned}
+     a &= b + c \\
+     &= d + e + f \\
+     &= g + h
+ \end{aligned}
+ \end{equation}
+
+ Das Paket \texttt{mathtools} bietet auch zusätzliche Werkzeuge für Matrizen, wie die \texttt{bmatrix}-Umgebung:
+
+ \begin{equation}
+     A = \begin{bmatrix}
+         1 & 2 \\
+         3 & 4
+     \end{bmatrix}
+ \end{equation}
+
+ \newpage
+
+\subsection{amssymb}
+
+Hier mit lassen sich viele Symbole der Mathematik darstellen. \\
+Zum Beispiel die der reelen Zahlen $\mathbb{R}$, die natürlichen Zahlen  $\mathbb{N}$ sowie die Menge der Primzahlen $\mathbb{P}$ oder aber auch das Symbol für \enquote{existiert nicht} $\nexists$ darstellen. \\
+Die Vereinigung zweier Mengen $A$ und $B$ wird oft als $A \cup B$ geschrieben. \\
+Der Durchschnitt zweier Mengen $A$ und $B$ wird oft als $A \cap B$ geschrieben. \\
+
+\subsection{amsthm}
+
+Hier mit lassen sich Theoreme, Definitionen, Lemmata und mehr bilden. \\
+Nicht vergessen, ein newtheorem zu erstellen! \\
+
+\newtheorem{theorem}{Theorem}
+
+\newtheorem{definition}{Definition}
+
+\begin{theorem}
+    Dies ist ein Beispiel für ein Theorem.
+\end{theorem}
+
+\begin{definition}
+    Dies ist ein Beispiel für eine Definition.
+\end{definition}
+
+\begin{proof}
+    Dies ist ein Beispiel für einen Beweis.
+\end{proof}
+
+\subsection{bm}
+Mit bm lässt sich Fettschrift in mathematischen Umgebungen erzeugen, um gewisse Variablen z.B. zu markieren.
+
+Eine Gleichung mit Fettschrift: $F = \bm{m \cdot a}$.
+
+Eine Matrix mit Fettschrift:
+\[
+{A} = 
+\begin{bmatrix}
+    \bm{a}_{11} & \bm{a}_{12} \\
+    \bm{a}_{21} & \bm{a}_{22}
+\end{bmatrix}.
+\]
+
+
+\section{Graphiken}
+\subsection{graphicx}
+Hier lassen sich alle Bilder in das Dokument einbinden. Der Standardpfad ist schon auf \enquote{Content/image} gelegt, somit muss nur der Dateiname eingegeben werden. \\
+
+Mit [H] \enquote{ankert} man das Bild \enquote{here} fest. Folgende Optionen gibt es: h (here), t (top), b (bottom), p (separate Seite). Zu dem ist es hier zentriert und füllt 70\% des Dokuments aus. Dieses Bild wird dann auch in der Figure Liste auftauchen. \\
+\begin{figure}[H]
+    \centering
+    % Image with 70% of document width.
+    \includegraphics[width=0.7\textwidth]{test.png}
+    \caption{This is a test file.}\label{Figure:Testfile}
+  \end{figure}
+
+\subsection{adjustbox}
+
+Hier lassen sich Felder auf zum Beispiel Größe oder Rotation anpassen. \\
+
+\begin{adjustbox}{min width=5cm}
+    Dieser Text wird mindestens eine Breite von 5 cm haben.
+\end{adjustbox}
+
+\begin{adjustbox}{min width=5cm}
+    Dieser auch.
+\end{adjustbox}
+
+\begin{adjustbox}{max width=5cm}
+    Dieser Text wird maximaleine Breite von 5 cm haben, egal wie viel Stuss ich hier rein schreibe. Er wird trotzdem nur so lang sein, wie der Satz über mir.
+\end{adjustbox}
+
+\begin{adjustbox}{rotate=45}
+    Dieser Text wird um 45 Grad im Uhrzeigersinn gedreht.
+\end{adjustbox}
+\newpage
+
+\subsection{tikz}
+
+Hier mit lassen sich Graphen, bzw so alles mögliche zeichnen. Vorteil hier ist, wenn ich einen Graphen als Bild einfüge, wird dieser beim zoomen, falls er keine Vektorgrafik ist, nicht verlustfrei angezeigt werden. Mit Tikz passiert das nicht und es lassen sich auch Inhalte markieren.
+
+\begin{tikzpicture}
+    \draw (0,0) grid (4,3);
+\end{tikzpicture} 
+
+\begin{tikzpicture}
+    \draw[->] (0,0) -- (4,0) node[right] {$x$};
+    \draw[->] (0,0) -- (0,3) node[above] {$y$};
+    \draw[domain=0:2.5] plot (\x, {0.5*\x*\x}) node[right] {$y=x^2$};
+\end{tikzpicture}
+
+\section{Code}
+\subsection{algorithm, algpseudocode}
+
+Hier mit lassen sich Algorithmen,Code Sequenzen oder Pseudocode darstellen.
+
+\begin{algorithm}
+    \caption{Berechne die Fakultät einer Zahl}
+    \begin{algorithmic}[1]
+    \Procedure{Factorial}{$n$}
+    \State$result \gets 1$
+    \For{$i \gets 1$ \textbf{to} $n$}
+        \State$result \gets result \times i$
+    \EndFor
+    \State\Return$result$
+    \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+    \caption{Berechne die größte Zahl}
+    \begin{algorithmic}[2]
+    \Procedure{Max}{$a, b$}
+    \If{$a > b$}
+        \State\Return$a$
+    \Else
+        \State\Return$b$
+    \EndIf
+    \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+\nocite{knieps2013}
+
+\newpage
+\section{Tabellen}
+Hier füge ich jetzt noch ein paar Tabellen ein, um zu zeigen, dass diese auch direkt im Tabellenverzeichnis eingetragen werden.
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        Header 1 & Header 2 \\
+        \hline
+        Entry 1 & Entry 2 \\
+        Entry 3 & Entry 4 \\
+        Entry 5 & Entry 6 \\
+        \hline
+    \end{tabular}
+    \caption{Eine einfache Tabelle mit zwei Spalten und drei Zeilen.}
+\end{table}
+According to \cite{ludger2014}
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|r|}
+        \hline
+        \textbf{Left-aligned} & \textbf{Centered} & \textbf{Right-aligned} \\
+        \hline
+        Entry 1 & Entry 2 & Entry 3 \\
+        Entry 4 & Entry 5 & Entry 6 \\
+        \hline
+    \end{tabular}
+    \caption{Eine Tabelle mit unterschiedlichen Ausrichtungen der Spalten.}
+\end{table}
+According to~\cite{Cormen2001}
+
+
+\clearpage
